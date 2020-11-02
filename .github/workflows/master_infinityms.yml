@@ -21,7 +21,7 @@ jobs:
         java-version: '8'
 
     - name: Build with Maven
-      run: mvn package
+      run: mvn clean install
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -29,4 +29,4 @@ jobs:
         app-name: 'infinityms'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_05a02f106b374aef8521468317178daa }}
-        package: '${{ github.workspace }}/target/*.jar'
+        package: '${{ github.workspace }}/target/sample-spring-api-0.0.1-SNAPSHOT.jar'
